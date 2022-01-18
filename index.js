@@ -3,14 +3,14 @@ const db = require("./db");
 require("console.table");
 
 
-init();
+initializeApp();
 
 // initial function at NPM start
-function init() {
-    runPrompts();
+function initializeApp() {
+    promptsApp();
 }
 
-function runPrompts() {
+function promptsApp() {
     prompt([
         {
             // Load these prompts on NPM start
@@ -95,7 +95,7 @@ function viewAllEmployees() {
             console.log("\n");
             console.table(employees);
         })
-        .then(() => runPrompts());
+        .then(() => promptsApp());
 }
 
 // View all roles
@@ -106,7 +106,7 @@ function viewAllRoles() {
             console.log("\n");
             console.table(roles);
         })
-        .then(() => runPrompts());
+        .then(() => promptsApp());
 }
 
 // View all deparments
@@ -117,7 +117,7 @@ function viewAllDepartments() {
             console.log("\n");
             console.table(departments);
         })
-        .then(() => runPrompts());
+        .then(() => promptsApp());
 }
 
 // Add a role
@@ -149,7 +149,7 @@ function createRole() {
                 .then(roles => {
                     db.addRole(roles)
                         .then(() => console.log(`Added ${roles.title} to the database`))
-                        .then(() => runPrompts())
+                        .then(() => promptsApp())
                 })
         })
 }
@@ -167,7 +167,7 @@ function createDepartment() {
             let name = res;
             db.addDepartment(name)
                 .then(() => console.log(`Added ${name.name} to the database`))
-                .then(() => runPrompts())
+                .then(() => promptsApp())
         })
 }
 
@@ -233,7 +233,7 @@ function createEmployee() {
                                         .then(() => console.log(
                                             `Added ${firstName} ${lastName} to the database`
                                         ))
-                                        .then(() => runPrompts())
+                                        .then(() => promptsApp())
                                 })
                         })
                 })
@@ -280,7 +280,7 @@ function updateEmployeeRole() {
                             ])
                                 .then(res => db.updateEmployeeRole(employeeId, res.roleId))
                                 .then(() => console.log("Employee's role is updated"))
-                                .then(() => runPrompts())
+                                .then(() => promptsApp())
                         });
                 });
         })
