@@ -4,7 +4,7 @@ An application that is ran using the command line. This app can manange an emplo
 
 ### Github: https://github.com/cesar863/employee-tracker
 
-### Walkthrough vide: "link goes here"
+### Walkthrough vide: https://youtu.be/0SHA1Uekc5Q
 
 ## Description
 - An application that is ran Using the command line
